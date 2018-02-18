@@ -1,0 +1,31 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          Für welches Programm ist das Script?
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Kurze Beschreibung
+# Description:       Längere Beschreibung
+### END INIT INFO
+ 
+# Actions
+option="${1}"
+case "${option}" in
+    "stop")
+        # STOP
+	pid=$(pidof raspControl)
+	sudo kill  $pid
+        ;;
+    "restart")
+        # RESTART
+	raspControl stop
+	raspControl
+        ;;
+    *)
+	cd /var/www/py-script/raspControl/
+	python main.py &
+	;;
+esac
+ 
+exit 0
