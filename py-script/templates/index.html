@@ -1,0 +1,38 @@
+$def with(logarray)
+	<div id="Control">
+	    <form action="/" method="POST">
+		<table class="table">
+			<tr>
+				<td>	
+					<div class="udb.box">				
+					<input class="udb" 	    name="value" 
+						   value="test"  type="image" alt="submit"
+						   src="/static/icon/rpi.png" />	
+					</div>
+					<udbtext> Ping Google </udbtext>
+				</td>
+			</tr>
+		</table>	
+		</form>
+	</div>
+	<div id="Log">
+	Log entries:<br><br>
+	        <form action="" method="POST">
+                <input type="submit" name="value" value="cmds_reload" />
+                <input type="submit" name="value" value="clear_log" />
+        </form>
+		<br>
+		<br>
+
+	<table>
+		$for logs in reversed(logarray):
+		<tr>
+			$logs <br>
+		</tr>
+	</table>
+	</div>
+
+<script>  </script>
+
+
+
